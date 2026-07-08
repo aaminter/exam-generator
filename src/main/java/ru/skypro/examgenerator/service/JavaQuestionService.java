@@ -13,13 +13,14 @@ import java.util.Random;
 public class JavaQuestionService implements QuestionService {
 
     private final QuestionRepository repository;
-    private final Random random = new Random();
+    private final Random random;
 
     public JavaQuestionService(QuestionRepository repository) {
         this.repository = repository;
+        this.random = new Random();
     }
 
-    @Override
+        @Override
     public Question add(String question, String answer) {
         return repository.add(new Question(question, answer));
     }

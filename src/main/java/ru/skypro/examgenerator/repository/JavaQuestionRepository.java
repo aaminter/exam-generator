@@ -21,7 +21,9 @@ public class JavaQuestionRepository implements QuestionRepository {
 
     @Override
     public Question remove(Question question) {
-        questions.remove(question);
+        if (!questions.remove(question)) {
+            throw new RuntimeException("Вопрос не найден");
+        }
         return question;
     }
 
